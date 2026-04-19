@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "build:vercel": "vite build",
+    "build:vercel": "node scripts/build-vercel.js",
     "start": "npm run dev"
   },
   "dependencies": {
