@@ -11,7 +11,11 @@ import {
   Search,
   FileDown,
   ChevronRight,
+  ChevronLeft,
   Loader2,
+  ZoomIn,
+  ZoomOut,
+  Maximize,
 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Input } from "@/components/ui/input";
@@ -38,6 +42,8 @@ export const Route = createFileRoute("/resources")({
   }),
   component: ResourcesPage,
 });
+
+import PdfViewer from "@/components/PdfViewer";
 
 const resourceCategories = [
   { id: "all", title: "All", icon: Layers },
@@ -177,6 +183,12 @@ function ResourcesPage() {
   const [isPdfLoading, setIsPdfLoading] = useState(true);
   const [downloadingFile, setDownloadingFile] = useState<string | null>(null);
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   useEffect(() => {
     if (selectedFile) {
       setIsPdfLoading(true);
@@ -313,11 +325,11 @@ function ResourcesPage() {
                               </h3>
                             </div>
 
-                            <div className="mt-auto flex flex-col sm:grid sm:grid-cols-2 gap-3 pt-5 border-t border-muted/50">
+                            <div className="mt-auto grid grid-cols-2 gap-3 pt-5 border-t border-muted/50">
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="hidden sm:flex h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
+                                className="h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
                                 onClick={() => setSelectedFile(file.filename)}
                                 disabled={!!selectedFile}
                               >
@@ -327,7 +339,7 @@ function ResourcesPage() {
                               <Button
                                 variant="default"
                                 size="sm"
-                                className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px] w-full"
+                                className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px]"
                                 onClick={() => handleDownload(file.filename)}
                                 disabled={downloadingFile === file.filename}
                               >
@@ -382,38 +394,8 @@ function ResourcesPage() {
               </span>
             </DialogTitle>
           </DialogHeader>
-          <div className="flex-1 relative bg-slate-100">
-            {isPdfLoading && (
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-50 z-20">
-                <div className="flex flex-col items-center gap-4 text-center p-6">
-                  <div className="relative">
-                    <Loader2 className="h-12 w-12 text-brand animate-spin" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="h-2 w-2 bg-brand rounded-full animate-pulse" />
-                    </div>
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-base font-bold text-slate-800">Loading Document</p>
-                    <p className="text-xs text-muted-foreground">Please wait a moment...</p>
-                  </div>
-                </div>
-              </div>
-            )}
-            {selectedFile && (
-              <iframe
-                key={selectedFile}
-                src={`/docs/${selectedFile}#toolbar=0&navpanes=0`}
-                className="w-full h-full border-none"
-                title="PDF Viewer"
-                onLoad={() => setIsPdfLoading(false)}
-              />
-            )}
-            {/* Mobile overlay indicator */}
-            <div className="absolute top-4 right-4 md:hidden pointer-events-none opacity-50">
-              <span className="bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">
-                PDF View
-              </span>
-            </div>
+          <div className="flex-1 relative bg-slate-100 overflow-hidden flex flex-col">
+            {isClient && selectedFile && <PdfViewer file={selectedFile} />}
           </div>
           <div className="px-5 py-4 border-t bg-slate-50 flex items-center justify-between gap-4">
             <p className="hidden sm:block text-[11px] text-muted-foreground italic uppercase tracking-wider">
