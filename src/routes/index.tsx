@@ -12,8 +12,15 @@ import {
   BarChart3,
   Quote,
   CheckCircle2,
+  Store,
+  Car,
+  Lightbulb,
+  Settings,
+  BookOpen,
+  ShieldAlert,
 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
+import { IndustryCard } from "@/components/IndustryCard";
 import hero from "@/assets/hero.jpg";
 import about from "@/assets/about.jpg";
 import whyUs from "@/assets/why-us.jpg";
@@ -31,7 +38,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Expert financial, taxation, accounting and business consulting services tailored for SMEs and startups in Karachi, Pakistan.",
+          "Expert financial, taxation, accounting and business consulting services tailored for SMEs and startups in Karachi, Pakistan. Economical and reliable solutions.",
       },
       { property: "og:title", content: "Bizwise Consultants — Business with Confidence" },
       {
@@ -91,12 +98,51 @@ const reasons = [
   {
     icon: Users,
     title: "Tailored SME Solutions",
-    desc: "Built around the realities and budgets of growing businesses.",
+    desc: "Economical and reliable solutions built around the realities of growing businesses.",
   },
   {
     icon: Briefcase,
     title: "Cost & Time Efficient",
     desc: "Lower fixed costs while improving financial control and speed.",
+  },
+];
+
+const industries = [
+  {
+    icon: Store,
+    industry: "Retail & Grocery",
+    challenge: "Struggling with complex inventory management and maintaining healthy liquidity for daily operations.",
+    solution: "Automated inventory tracking and cash flow forecasting to ensure stock optimization and financial stability.",
+  },
+  {
+    icon: Car,
+    industry: "Automotive Dealers",
+    challenge: "Facing rigorous tax filings and compliance issues that risked regulatory penalties.",
+    solution: "End-to-end tax management and proactive compliance monitoring to ensure seamless, penalty-free operations.",
+  },
+  {
+    icon: Lightbulb,
+    industry: "Entrepreneurs",
+    challenge: "Difficulty converting a brilliant business idea into a concrete, investor-ready financial plan.",
+    solution: "Strategic financial modeling and business plan development to turn vision into a viable commercial reality.",
+  },
+  {
+    icon: Settings,
+    industry: "SME Operations",
+    challenge: "Lacking control over day-to-day resources, leading to inefficiencies and wasted overhead costs.",
+    solution: "Resource optimization frameworks and management controls to maximize operational efficiency.",
+  },
+  {
+    icon: BookOpen,
+    industry: "Professional Services",
+    challenge: "Overwhelmed by messy bookkeeping and inconsistent data reconciliation across multiple platforms.",
+    solution: "Digital bookkeeping transformation and rigorous data reconciliation for 100% financial accuracy.",
+  },
+  {
+    icon: ShieldAlert,
+    industry: "Investors",
+    challenge: "Uncertainty regarding returns due to economic recession and shifting fiscal policies.",
+    solution: "Risk assessment and tactical investment advisory to protect capital and navigate economic volatility.",
   },
 ];
 
@@ -149,8 +195,7 @@ function HomePage() {
               Business with <span className="text-brand">Confidence</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-primary-foreground/85 max-w-xl leading-relaxed">
-              Expert financial, taxation, and business consulting services tailored for growing
-              businesses. We turn complexity into clarity.
+              Economical and reliable financial, taxation, and business consulting services. We provide the quick fixes and long-term stability you need.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -223,15 +268,13 @@ function HomePage() {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Bizwise Consultants is led by{" "}
               <strong className="text-foreground">Syed Khawar Raza Naqvi (CPA, MBA Finance)</strong>{" "}
-              with 20+ years of experience in accounting, taxation, compliance, and financial
-              advisory. We help businesses navigate financial complexities, optimize operations, and
-              make informed decisions.
+              with 20+ years of experience. We provide simple, understandable solutions that give business owners the confidence to grow.
             </p>
             <ul className="mt-8 space-y-3">
               {[
                 "20+ Years Experience",
-                "SME Focused Solutions",
-                "UAE Business Support",
+                "Economical SME Solutions",
+                "Offshore Bookkeeping",
                 "End-to-end Compliance",
               ].map((t) => (
                 <li key={t} className="flex items-center gap-3 text-foreground">
@@ -254,8 +297,8 @@ function HomePage() {
         <div className="container-page">
           <SectionHeading
             eyebrow="Why Choose Us"
-            title="We treat your business like our own"
-            subtitle="Trust, expertise and a partnership-first mindset on every engagement."
+            title="Economical. Reliable. Specific to your needs."
+            subtitle="We bridge the gap between complex financial requirements and your budget."
           />
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {reasons.map((r, i) => (
@@ -275,26 +318,32 @@ function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-12 relative rounded-3xl overflow-hidden shadow-elegant animate-fade-up">
-            <img
-              src={whyUs}
-              alt="Business partnership handshake"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="w-full h-64 md:h-80 object-cover"
-            />
-            <div className="absolute inset-0 gradient-overlay flex items-center justify-center">
-              <p className="text-2xl md:text-4xl font-bold text-white text-center px-6">
-                "We treat your business like our own."
-              </p>
-            </div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES / SUCCESS STORIES */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 h-full w-full bg-brand/5 -skew-y-6" />
+        <div className="container-page relative">
+          <SectionHeading
+            eyebrow="Success Across Industries"
+            title="Real challenges. Successful outcomes."
+            subtitle="We've served diverse business types, solving complex financial and operational hurdles."
+          />
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {industries.map((ind, i) => (
+              <IndustryCard
+                key={ind.industry}
+                {...ind}
+                delay={i * 80}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="py-24">
+      <section className="py-24 bg-secondary/40">
         <div className="container-page">
           <SectionHeading
             eyebrow="What We Do"
@@ -387,7 +436,7 @@ function HomePage() {
                 Ready to grow with confidence?
               </h2>
               <p className="mt-4 text-white/90 max-w-xl mx-auto">
-                Book a free initial consultation today. No obligation, just clarity.
+                Book a free initial consultation today. Economical, reliable, and tailored to you.
               </p>
               <Link
                 to="/contact"

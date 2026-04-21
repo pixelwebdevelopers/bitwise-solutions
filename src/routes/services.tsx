@@ -7,6 +7,7 @@ import {
   Scale,
   CheckCircle2,
   ArrowRight,
+  Globe,
 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import svcAccounting from "@/assets/svc-accounting.jpg";
@@ -45,6 +46,18 @@ const services = [
       "Monthly Financial Reporting",
       "Accounts Payable & Receivable",
       "Bank Reconciliation",
+    ],
+  },
+  {
+    icon: Globe,
+    title: "Offshore Bookkeeping",
+    img: svcAccounting,
+    items: [
+      "Affordable Rates for International Clients",
+      "Comprehensive Financial Reporting",
+      "Tax Filings & Compliance",
+      "Advanced Business Analytics",
+      "Multi-currency Reconciliation",
     ],
   },
   {

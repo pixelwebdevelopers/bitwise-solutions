@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, Facebook, Linkedin, Twitter, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
+import pixelLogo from "@/assets/pixel-logo.png";
 
 export function SiteFooter() {
   return (
@@ -87,11 +88,22 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/70">
+        <div className="container-page py-6 flex flex-col items-center justify-center gap-3 text-xs text-primary-foreground/70 text-center">
           <p>© {new Date().getFullYear()} Bizwise Consultants. All rights reserved.</p>
-          <p>
-            Developed by <span className="text-brand font-semibold">Pixel Web Developers</span>
-          </p>
+          <a
+            href="https://pixelwebdevelopers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 transition-smooth hover:text-white"
+          >
+            <span>Developed by</span>
+            <img
+              src={pixelLogo}
+              alt="Pixel Web Developers Logo"
+              className="h-5 w-auto opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all"
+            />
+            <span className="text-brand font-bold group-hover:underline">Pixel Web Developers</span>
+          </a>
         </div>
       </div>
     </footer>
