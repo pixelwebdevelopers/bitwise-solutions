@@ -177,17 +177,6 @@ function ResourcesPage() {
   const [isPdfLoading, setIsPdfLoading] = useState(true);
   const [downloadingFile, setDownloadingFile] = useState<string | null>(null);
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
   useEffect(() => {
     if (selectedFile) {
       setIsPdfLoading(true);
@@ -324,11 +313,11 @@ function ResourcesPage() {
                               </h3>
                             </div>
 
-                            <div className="mt-auto grid grid-cols-2 gap-3 pt-5 border-t border-muted/50">
+                            <div className="mt-auto flex flex-col sm:grid sm:grid-cols-2 gap-3 pt-5 border-t border-muted/50">
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
+                                className="hidden sm:flex h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
                                 onClick={() => setSelectedFile(file.filename)}
                                 disabled={!!selectedFile}
                               >
@@ -338,7 +327,7 @@ function ResourcesPage() {
                               <Button
                                 variant="default"
                                 size="sm"
-                                className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px]"
+                                className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px] w-full"
                                 onClick={() => handleDownload(file.filename)}
                                 disabled={downloadingFile === file.filename}
                               >
@@ -411,16 +400,13 @@ function ResourcesPage() {
               </div>
             )}
             {selectedFile && (
-              <div className={`w-full h-full ${isMobile ? "overflow-auto scrolling-touch" : ""}`}>
-                <iframe
-                  key={selectedFile}
-                  src={`/docs/${selectedFile}#toolbar=0&navpanes=0`}
-                  className="w-full h-full border-none"
-                  style={{ minHeight: isMobile ? "600px" : "100%" }}
-                  title="PDF Viewer"
-                  onLoad={() => setIsPdfLoading(false)}
-                />
-              </div>
+              <iframe
+                key={selectedFile}
+                src={`/docs/${selectedFile}#toolbar=0&navpanes=0`}
+                className="w-full h-full border-none"
+                title="PDF Viewer"
+                onLoad={() => setIsPdfLoading(false)}
+              />
             )}
             {/* Mobile overlay indicator */}
             <div className="absolute top-4 right-4 md:hidden pointer-events-none opacity-50">
@@ -434,21 +420,6 @@ function ResourcesPage() {
               Bizwise Consultants Digital Library
             </p>
             <div className="flex items-center gap-3 w-full sm:w-auto">
-              {isMobile && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex-1 sm:flex-none h-10 border-brand/30 text-brand hover:bg-brand/5 rounded-xl"
-                  onClick={() => {
-                    if (selectedFile) {
-                      window.open(`/docs/${selectedFile}`, "_blank");
-                    }
-                  }}
-                >
-                  <Eye className="h-4 w-4 mr-2" />
-                  Full Screen
-                </Button>
-              )}
               <Button
                 variant="outline"
                 size="sm"
