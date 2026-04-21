@@ -13,9 +13,7 @@ export function SectionHeading({ eyebrow, title, subtitle, center = true }: Prop
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground">
-        {title}
-      </h2>
+      <h2 className="mt-3 text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
       {subtitle && (
         <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
           {subtitle}

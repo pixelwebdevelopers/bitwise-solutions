@@ -1,37 +1,39 @@
 import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { 
-  BookOpen, 
-  FileText, 
-  Scale, 
-  Building2, 
-  Layers, 
-  Download, 
-  Eye, 
-  Search, 
+import {
+  BookOpen,
+  FileText,
+  Scale,
+  Building2,
+  Layers,
+  Download,
+  Eye,
+  Search,
   FileDown,
   ChevronRight,
-  Loader2
+  Loader2,
 } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogHeader, 
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import resourcesImg from "@/assets/resources.jpg";
 
 export const Route = createFileRoute("/resources")({
   head: () => ({
     meta: [
       { title: "Resources Library — Tax, Legal & Compliance | Bizwise Consultants" },
-      { name: "description", content: "Comprehensive library of tax laws, legal acts, and compliance documents for businesses in Pakistan." },
+      {
+        name: "description",
+        content:
+          "Comprehensive library of tax laws, legal acts, and compliance documents for businesses in Pakistan.",
+      },
       { property: "og:title", content: "Resources Library — Bizwise Consultants" },
-      { property: "og:description", content: "Curated tax and legal references for Pakistani businesses." },
+      {
+        property: "og:description",
+        content: "Curated tax and legal references for Pakistani businesses.",
+      },
     ],
   }),
   component: ResourcesPage,
@@ -48,36 +50,124 @@ const resourceCategories = [
 
 const resourceFiles = [
   // Income Tax
-  { category: "income-tax", title: "Income Tax Ordinance - 4th & 5th Schedule (Amended)", filename: "4th-5th-schedule-amended.pdf" },
-  { category: "income-tax", title: "Assets Declaration Rules 2019 (SRO 578)", filename: "assets-declaration-rules-2019.pdf" },
-  { category: "income-tax", title: "POS Integration for Retailers (u/s 236G & 236H)", filename: "pos-integration-retailers.pdf" },
-  { category: "income-tax", title: "Withholding Tax (WHT) Rate Card - June 2025", filename: "wht-rate-card-2025.pdf" },
-  
+  {
+    category: "income-tax",
+    title: "Income Tax Ordinance - 4th & 5th Schedule (Amended)",
+    filename: "4th-5th-schedule-amended.pdf",
+  },
+  {
+    category: "income-tax",
+    title: "Assets Declaration Rules 2019 (SRO 578)",
+    filename: "assets-declaration-rules-2019.pdf",
+  },
+  {
+    category: "income-tax",
+    title: "POS Integration for Retailers (u/s 236G & 236H)",
+    filename: "pos-integration-retailers.pdf",
+  },
+  {
+    category: "income-tax",
+    title: "Withholding Tax (WHT) Rate Card - June 2025",
+    filename: "wht-rate-card-2025.pdf",
+  },
+
   // Sales Tax
-  { category: "sales-tax", title: "SRO 428 - Online Integration of Businesses", filename: "sro-428-online-integration.pdf" },
-  { category: "sales-tax", title: "Sales Tax Act (Updated 2025-26)", filename: "sales-tax-act-2025-26.pdf" },
-  { category: "sales-tax", title: "Sales Tax Special Procedure Rules 2007", filename: "sales-tax-special-procedure-rules.pdf" },
-  { category: "sales-tax", title: "Sales Tax Withholding Rules 2007 (Updated)", filename: "sales-tax-withholding-rules.pdf" },
+  {
+    category: "sales-tax",
+    title: "SRO 428 - Online Integration of Businesses",
+    filename: "sro-428-online-integration.pdf",
+  },
+  {
+    category: "sales-tax",
+    title: "Sales Tax Act (Updated 2025-26)",
+    filename: "sales-tax-act-2025-26.pdf",
+  },
+  {
+    category: "sales-tax",
+    title: "Sales Tax Special Procedure Rules 2007",
+    filename: "sales-tax-special-procedure-rules.pdf",
+  },
+  {
+    category: "sales-tax",
+    title: "Sales Tax Withholding Rules 2007 (Updated)",
+    filename: "sales-tax-withholding-rules.pdf",
+  },
 
   // Services Tax
-  { category: "services-tax", title: "Sindh Sales Tax - Online Integration Rules", filename: "sindh-online-integration-rules.pdf" },
-  { category: "services-tax", title: "Sindh Sales Tax Act 2011 (Updated 2025-26)", filename: "sindh-sales-tax-act-2025-26.pdf" },
-  { category: "services-tax", title: "Sindh Sales Tax Rules 2011 (Updated 2025-26)", filename: "sindh-sales-tax-rules-2025-26.pdf" },
-  { category: "services-tax", title: "Sindh Sales Tax - Special Procedure for Services", filename: "sindh-sales-tax-special-procedure.pdf" },
-  { category: "services-tax", title: "Sindh Sales Tax - Withholding Procedure Rules", filename: "sindh-sales-tax-withholding-rules.pdf" },
-  { category: "services-tax", title: "Sindh Sales Tax - Withholding Procedure Rules (Alt)", filename: "sindh-sales-tax-withholding-rules-alt.pdf" },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax - Online Integration Rules",
+    filename: "sindh-online-integration-rules.pdf",
+  },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax Act 2011 (Updated 2025-26)",
+    filename: "sindh-sales-tax-act-2025-26.pdf",
+  },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax Rules 2011 (Updated 2025-26)",
+    filename: "sindh-sales-tax-rules-2025-26.pdf",
+  },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax - Special Procedure for Services",
+    filename: "sindh-sales-tax-special-procedure.pdf",
+  },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax - Withholding Procedure Rules",
+    filename: "sindh-sales-tax-withholding-rules.pdf",
+  },
+  {
+    category: "services-tax",
+    title: "Sindh Sales Tax - Withholding Procedure Rules (Alt)",
+    filename: "sindh-sales-tax-withholding-rules-alt.pdf",
+  },
 
   // Companies Act
-  { category: "companies-act", title: "Limited Liability Partnership (LLP) Act 2017", filename: "llp-act-2017.pdf" },
-  { category: "companies-act", title: "LLP Amendments Act 2020", filename: "llp-amendments-2020.pdf" },
-  { category: "companies-act", title: "Companies Act 2017 - Updated 3rd Schedule", filename: "companies-act-3rd-schedule.pdf" },
-  { category: "companies-act", title: "Companies Act 2017 - Updated 7th Schedule", filename: "companies-act-7th-schedule.pdf" },
+  {
+    category: "companies-act",
+    title: "Limited Liability Partnership (LLP) Act 2017",
+    filename: "llp-act-2017.pdf",
+  },
+  {
+    category: "companies-act",
+    title: "LLP Amendments Act 2020",
+    filename: "llp-amendments-2020.pdf",
+  },
+  {
+    category: "companies-act",
+    title: "Companies Act 2017 - Updated 3rd Schedule",
+    filename: "companies-act-3rd-schedule.pdf",
+  },
+  {
+    category: "companies-act",
+    title: "Companies Act 2017 - Updated 7th Schedule",
+    filename: "companies-act-7th-schedule.pdf",
+  },
 
   // Others
-  { category: "others", title: "Anti-Money Laundering (AML) Act 2010", filename: "anti-money-laundering-act-2010.pdf" },
-  { category: "others", title: "Benami Transactions (Prohibition) Act 2017", filename: "benami-transactions-act-2017.pdf" },
-  { category: "others", title: "Benami Transactions (Prohibition) Rules 2019", filename: "benami-transactions-rules-2019.pdf" },
-  { category: "others", title: "Customs Act 1969 (Updated June 2025)", filename: "customs-act-1969.pdf" },
+  {
+    category: "others",
+    title: "Anti-Money Laundering (AML) Act 2010",
+    filename: "anti-money-laundering-act-2010.pdf",
+  },
+  {
+    category: "others",
+    title: "Benami Transactions (Prohibition) Act 2017",
+    filename: "benami-transactions-act-2017.pdf",
+  },
+  {
+    category: "others",
+    title: "Benami Transactions (Prohibition) Rules 2019",
+    filename: "benami-transactions-rules-2019.pdf",
+  },
+  {
+    category: "others",
+    title: "Customs Act 1969 (Updated June 2025)",
+    filename: "customs-act-1969.pdf",
+  },
 ];
 
 function ResourcesPage() {
@@ -87,6 +177,17 @@ function ResourcesPage() {
   const [isPdfLoading, setIsPdfLoading] = useState(true);
   const [downloadingFile, setDownloadingFile] = useState<string | null>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   useEffect(() => {
     if (selectedFile) {
       setIsPdfLoading(true);
@@ -95,12 +196,12 @@ function ResourcesPage() {
 
   const handleDownload = async (filename: string) => {
     if (downloadingFile) return;
-    
+
     setDownloadingFile(filename);
     try {
       const response = await fetch(`/docs/${filename}`);
       if (!response.ok) throw new Error("File not found");
-      
+
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
@@ -123,7 +224,7 @@ function ResourcesPage() {
     }
   };
 
-  const filteredFiles = resourceFiles.filter(file => {
+  const filteredFiles = resourceFiles.filter((file) => {
     const matchesSearch = file.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTab = activeTab === "all" || file.category === activeTab;
     return matchesSearch && matchesTab;
@@ -136,10 +237,13 @@ function ResourcesPage() {
           <img src={resourcesImg} alt="" className="h-full w-full object-cover" />
         </div>
         <div className="container-page relative text-center px-4 animate-fade-up">
-          <span className="inline-block text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-brand bg-brand/10 px-3 py-1 rounded-full mb-4">Knowledge Center</span>
+          <span className="inline-block text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-brand bg-brand/10 px-3 py-1 rounded-full mb-4">
+            Knowledge Center
+          </span>
           <h1 className="text-3xl md:text-6xl font-extrabold tracking-tight">Resources Library</h1>
           <p className="mt-4 md:mt-6 max-w-2xl mx-auto text-primary-foreground/85 text-base md:text-lg leading-relaxed">
-            Access our curated collection of tax laws, legal acts, and regulatory updates in Pakistan.
+            Access our curated collection of tax laws, legal acts, and regulatory updates in
+            Pakistan.
           </p>
         </div>
       </section>
@@ -153,8 +257,8 @@ function ResourcesPage() {
               </div>
               <div className="relative w-full md:w-80 group">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-brand transition-colors" />
-                <Input 
-                  placeholder="Search resources..." 
+                <Input
+                  placeholder="Search resources..."
                   className="pl-10 h-12 bg-card border-muted-foreground/20 focus-visible:ring-brand shadow-sm rounded-xl"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -162,15 +266,20 @@ function ResourcesPage() {
               </div>
             </div>
 
-            <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <Tabs
+              defaultValue="all"
+              value={activeTab}
+              onValueChange={setActiveTab}
+              className="w-full"
+            >
               <div className="flex flex-col gap-8">
                 {/* Horizontal Scrollable Tabs for Mobile */}
                 <div className="relative">
                   <div className="overflow-x-auto pb-4 -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide flex justify-start md:justify-center">
                     <TabsList className="bg-card border h-auto p-1.5 inline-flex shadow-sm rounded-xl">
                       {resourceCategories.map((cat) => (
-                        <TabsTrigger 
-                          key={cat.id} 
+                        <TabsTrigger
+                          key={cat.id}
                           value={cat.id}
                           className="flex items-center gap-2 px-4 py-2.5 data-[state=active]:bg-brand data-[state=active]:text-white transition-all rounded-lg whitespace-nowrap text-sm font-semibold"
                         >
@@ -184,11 +293,14 @@ function ResourcesPage() {
                   <div className="md:hidden absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-background to-transparent pointer-events-none" />
                 </div>
 
-                <TabsContent value={activeTab} className="mt-0 animate-in fade-in-50 duration-500 outline-none">
+                <TabsContent
+                  value={activeTab}
+                  className="mt-0 animate-in fade-in-50 duration-500 outline-none"
+                >
                   {filteredFiles.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
                       {filteredFiles.map((file, i) => (
-                        <div 
+                        <div
                           key={file.filename}
                           style={{ animationDelay: `${i * 50}ms` }}
                           className="group bg-card rounded-2xl p-5 md:p-7 border border-muted/30 shadow-soft hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 animate-fade-up relative overflow-hidden"
@@ -196,7 +308,7 @@ function ResourcesPage() {
                           <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
                             <FileText className="h-16 w-16 md:h-20 md:w-20 text-brand" />
                           </div>
-                          
+
                           <div className="flex flex-col h-full relative z-10">
                             <div className="mb-6">
                               <div className="flex items-center justify-between mb-4">
@@ -213,9 +325,9 @@ function ResourcesPage() {
                             </div>
 
                             <div className="mt-auto grid grid-cols-2 gap-3 pt-5 border-t border-muted/50">
-                              <Button 
-                                variant="outline" 
-                                size="sm" 
+                              <Button
+                                variant="outline"
+                                size="sm"
                                 className="h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
                                 onClick={() => setSelectedFile(file.filename)}
                                 disabled={!!selectedFile}
@@ -223,9 +335,9 @@ function ResourcesPage() {
                                 <Eye className="h-4 w-4" />
                                 View
                               </Button>
-                              <Button 
-                                variant="default" 
-                                size="sm" 
+                              <Button
+                                variant="default"
+                                size="sm"
                                 className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px]"
                                 onClick={() => handleDownload(file.filename)}
                                 disabled={downloadingFile === file.filename}
@@ -251,8 +363,8 @@ function ResourcesPage() {
                       <p className="text-muted-foreground mt-3 max-w-sm mx-auto px-4">
                         We couldn't find any documents matching "{searchQuery}" in this category.
                       </p>
-                      <Button 
-                        variant="link" 
+                      <Button
+                        variant="link"
                         className="mt-6 text-brand font-semibold text-base"
                         onClick={() => {
                           setSearchQuery("");
@@ -276,7 +388,9 @@ function ResourcesPage() {
           <DialogHeader className="px-5 py-4 border-b bg-slate-50 flex flex-row items-center justify-between space-y-0">
             <DialogTitle className="text-sm md:text-base font-bold flex items-center gap-2 truncate pr-10">
               <FileDown className="h-5 w-5 text-brand shrink-0" />
-              <span className="truncate">{resourceFiles.find(f => f.filename === selectedFile)?.title}</span>
+              <span className="truncate">
+                {resourceFiles.find((f) => f.filename === selectedFile)?.title}
+              </span>
             </DialogTitle>
           </DialogHeader>
           <div className="flex-1 relative bg-slate-100">
@@ -297,17 +411,22 @@ function ResourcesPage() {
               </div>
             )}
             {selectedFile && (
-              <iframe 
-                key={selectedFile}
-                src={`/docs/${selectedFile}#toolbar=0&navpanes=0`} 
-                className="w-full h-full border-none"
-                title="PDF Viewer"
-                onLoad={() => setIsPdfLoading(false)}
-              />
+              <div className={`w-full h-full ${isMobile ? "overflow-auto scrolling-touch" : ""}`}>
+                <iframe
+                  key={selectedFile}
+                  src={`/docs/${selectedFile}#toolbar=0&navpanes=0`}
+                  className="w-full h-full border-none"
+                  style={{ minHeight: isMobile ? "600px" : "100%" }}
+                  title="PDF Viewer"
+                  onLoad={() => setIsPdfLoading(false)}
+                />
+              </div>
             )}
             {/* Mobile overlay indicator */}
             <div className="absolute top-4 right-4 md:hidden pointer-events-none opacity-50">
-               <span className="bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">PDF View</span>
+              <span className="bg-black/60 text-white text-[10px] px-2 py-1 rounded-md backdrop-blur-sm">
+                PDF View
+              </span>
             </div>
           </div>
           <div className="px-5 py-4 border-t bg-slate-50 flex items-center justify-between gap-4">
@@ -315,16 +434,31 @@ function ResourcesPage() {
               Bizwise Consultants Digital Library
             </p>
             <div className="flex items-center gap-3 w-full sm:w-auto">
-              <Button 
+              {isMobile && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1 sm:flex-none h-10 border-brand/30 text-brand hover:bg-brand/5 rounded-xl"
+                  onClick={() => {
+                    if (selectedFile) {
+                      window.open(`/docs/${selectedFile}`, "_blank");
+                    }
+                  }}
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  Full Screen
+                </Button>
+              )}
+              <Button
                 variant="outline"
-                size="sm" 
+                size="sm"
                 className="flex-1 sm:flex-none h-10 border-muted-foreground/20 rounded-xl"
                 onClick={() => setSelectedFile(null)}
               >
                 Close
               </Button>
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="flex-1 sm:flex-none h-10 bg-brand text-white hover:bg-brand/90 rounded-xl px-6 min-w-[120px]"
                 onClick={() => selectedFile && handleDownload(selectedFile)}
                 disabled={downloadingFile === selectedFile}

@@ -33,10 +33,17 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Bizwise Consultants — Business with Confidence" },
-      { name: "description", content: "Expert financial, taxation and business consulting services for SMEs and growing businesses in Karachi, Pakistan." },
+      {
+        name: "description",
+        content:
+          "Expert financial, taxation and business consulting services for SMEs and growing businesses in Karachi, Pakistan.",
+      },
       { name: "author", content: "Bizwise Consultants" },
       { property: "og:title", content: "Bizwise Consultants — Business with Confidence" },
-      { property: "og:description", content: "Expert financial, taxation and business consulting services in Pakistan." },
+      {
+        property: "og:description",
+        content: "Expert financial, taxation and business consulting services in Pakistan.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -44,7 +51,10 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,

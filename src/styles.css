@@ -44,28 +44,59 @@
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 :root {
@@ -108,9 +139,18 @@
   --whatsapp: oklch(0.66 0.18 145);
 
   /* Gradients & shadows */
-  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.07 260) 0%, oklch(0.32 0.1 260) 60%, oklch(0.45 0.13 260) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.22 0.07 260) 0%,
+    oklch(0.32 0.1 260) 60%,
+    oklch(0.45 0.13 260) 100%
+  );
   --gradient-brand: linear-gradient(135deg, oklch(0.7 0.2 50), oklch(0.62 0.2 35));
-  --gradient-overlay: linear-gradient(135deg, oklch(0.22 0.07 260 / 0.85), oklch(0.27 0.08 260 / 0.6));
+  --gradient-overlay: linear-gradient(
+    135deg,
+    oklch(0.22 0.07 260 / 0.85),
+    oklch(0.27 0.08 260 / 0.6)
+  );
 
   --shadow-soft: 0 4px 20px -8px oklch(0.27 0.08 260 / 0.15);
   --shadow-elegant: 0 20px 50px -20px oklch(0.27 0.08 260 / 0.35);
@@ -120,15 +160,29 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
 }
 
 @utility container-page {
@@ -136,17 +190,40 @@
   max-width: 1200px;
   padding-inline: 1.5rem;
 }
-@utility gradient-hero { background-image: var(--gradient-hero); }
-@utility gradient-brand { background-image: var(--gradient-brand); }
-@utility gradient-overlay { background-image: var(--gradient-overlay); }
-@utility shadow-soft { box-shadow: var(--shadow-soft); }
-@utility shadow-elegant { box-shadow: var(--shadow-elegant); }
-@utility shadow-brand { box-shadow: var(--shadow-brand); }
-@utility transition-smooth { transition: var(--transition-smooth); }
-@utility text-brand { color: var(--color-brand); }
-@utility bg-brand { background-color: var(--color-brand); }
-@utility border-brand { border-color: var(--color-brand); }
+@utility gradient-hero {
+  background-image: var(--gradient-hero);
+}
+@utility gradient-brand {
+  background-image: var(--gradient-brand);
+}
+@utility gradient-overlay {
+  background-image: var(--gradient-overlay);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-elegant {
+  box-shadow: var(--shadow-elegant);
+}
+@utility shadow-brand {
+  box-shadow: var(--shadow-brand);
+}
+@utility transition-smooth {
+  transition: var(--transition-smooth);
+}
+@utility text-brand {
+  color: var(--color-brand);
+}
+@utility bg-brand {
+  background-color: var(--color-brand);
+}
+@utility border-brand {
+  border-color: var(--color-brand);
+}
 @utility hover-lift {
   transition: var(--transition-smooth);
-  &:hover { transform: translateY(-6px); box-shadow: var(--shadow-elegant); }
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elegant);
+  }
 }

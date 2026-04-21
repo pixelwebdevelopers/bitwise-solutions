@@ -11,19 +11,39 @@ export function SiteFooter() {
             <img src={logo} alt="Bizwise" className="h-10 w-auto" />
           </div>
           <p className="mt-4 text-sm text-primary-foreground/75 leading-relaxed">
-            Bizwise Consultants — expert financial, taxation and business
-            consulting tailored for SMEs and growing businesses in Pakistan.
+            Bizwise Consultants — expert financial, taxation and business consulting tailored for
+            SMEs and growing businesses in Pakistan.
           </p>
         </div>
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Quick Links</h4>
           <ul className="mt-4 space-y-2 text-sm text-primary-foreground/80">
-            <li><Link to="/" className="hover:text-brand transition-smooth">Home</Link></li>
-            <li><Link to="/about" className="hover:text-brand transition-smooth">About</Link></li>
-            <li><Link to="/services" className="hover:text-brand transition-smooth">Services</Link></li>
-            <li><Link to="/resources" className="hover:text-brand transition-smooth">Resources</Link></li>
-            <li><Link to="/trainings" className="hover:text-brand transition-smooth">Trainings</Link></li>
+            <li>
+              <Link to="/" className="hover:text-brand transition-smooth">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:text-brand transition-smooth">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:text-brand transition-smooth">
+                Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/resources" className="hover:text-brand transition-smooth">
+                Resources
+              </Link>
+            </li>
+            <li>
+              <Link to="/trainings" className="hover:text-brand transition-smooth">
+                Trainings
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -41,13 +61,24 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">Contact</h4>
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-            <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-brand shrink-0" /> Karachi, Pakistan</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand shrink-0" /> +92 317 2138835</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand shrink-0" /> info@bizwiseconsultants.com</li>
+            <li className="flex items-start gap-2">
+              <MapPin className="h-4 w-4 mt-0.5 text-brand shrink-0" /> Karachi, Pakistan
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="h-4 w-4 text-brand shrink-0" /> +92 317 2138835
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-brand shrink-0" /> info@bizwiseconsultants.com
+            </li>
           </ul>
           <div className="mt-5 flex gap-3">
             {[Facebook, Linkedin, Twitter, Instagram].map((Icon, i) => (
-              <a key={i} href="#" aria-label="social" className="rounded-full bg-white/10 p-2 hover:bg-brand transition-smooth">
+              <a
+                key={i}
+                href="#"
+                aria-label="social"
+                className="rounded-full bg-white/10 p-2 hover:bg-brand transition-smooth"
+              >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -58,7 +89,9 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="container-page py-5 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/70">
           <p>© {new Date().getFullYear()} Bizwise Consultants. All rights reserved.</p>
-          <p>Developed by <span className="text-brand font-semibold">Pixel Web Developers</span></p>
+          <p>
+            Developed by <span className="text-brand font-semibold">Pixel Web Developers</span>
+          </p>
         </div>
       </div>
     </footer>
