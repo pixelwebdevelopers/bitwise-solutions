@@ -58,8 +58,8 @@ const resourceFiles = [
   // Income Tax
   {
     category: "income-tax",
-    title: "Income Tax Ordinance - 4th & 5th Schedule (Amended)",
-    filename: "4th-5th-schedule-amended.pdf",
+    title: "Income Tax Ordinance 2001 (Amended Feb 2026)",
+    filename: "income-tax-ordinance-2001-amended-2026.pdf",
   },
   {
     category: "income-tax",
@@ -78,6 +78,11 @@ const resourceFiles = [
   },
 
   // Sales Tax
+  {
+    category: "sales-tax",
+    title: "Sales Tax Rules 2006 (Updated Aug 2025)",
+    filename: "sales-tax-rules-2006-updated-2025.pdf",
+  },
   {
     category: "sales-tax",
     title: "SRO 428 - Online Integration of Businesses",
@@ -134,6 +139,11 @@ const resourceFiles = [
   // Companies Act
   {
     category: "companies-act",
+    title: "Companies Act 2017 (Updated Aug 2022)",
+    filename: "companies-act-2017-updated-2022.pdf",
+  },
+  {
+    category: "companies-act",
     title: "Limited Liability Partnership (LLP) Act 2017",
     filename: "llp-act-2017.pdf",
   },
@@ -152,8 +162,28 @@ const resourceFiles = [
     title: "Companies Act 2017 - Updated 7th Schedule",
     filename: "companies-act-7th-schedule.pdf",
   },
+  {
+    category: "companies-act",
+    title: "Income Tax Ordinance - 4th & 5th Schedule (Amended)",
+    filename: "4th-5th-schedule-amended.pdf",
+  },
 
   // Others
+  {
+    category: "others",
+    title: "Customs Act 1969 - 5th Schedule (Updated 2025-26)",
+    filename: "customs-act-5th-schedule-2025-26.pdf",
+  },
+  {
+    category: "others",
+    title: "Pakistan Customs Tariff 2025-26",
+    filename: "pakistan-customs-tariff-2025-26.pdf",
+  },
+  {
+    category: "others",
+    title: "Pakistan Single Window Act 2021",
+    filename: "single-window-act.pdf",
+  },
   {
     category: "others",
     title: "Anti-Money Laundering (AML) Act 2010",
