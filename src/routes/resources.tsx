@@ -164,7 +164,7 @@ const resourceFiles = [
   },
   {
     category: "companies-act",
-    title: "Income Tax Ordinance - 4th & 5th Schedule (Amended)",
+    title: "Companies Act 2017 - 4th & 5th Schedule (Amended)",
     filename: "4th-5th-schedule-amended.pdf",
   },
 
