@@ -54,8 +54,21 @@ const resourceCategories = [
   { id: "others", title: "Others", icon: Scale },
 ];
 
-const resourceFiles = [
+type ResourceFile = {
+  category: string;
+  title: string;
+  filename: string;
+  externalLink?: string;
+};
+
+const resourceFiles: ResourceFile[] = [
   // Income Tax
+  {
+    category: "income-tax",
+    title: "Income Tax Rules 2006",
+    filename: "income-tax-rules-2006.pdf",
+    externalLink: "https://drive.google.com/file/d/1tLZFUedkO5ChletSS25l8Ps7uCNUjXe_/view",
+  },
   {
     category: "income-tax",
     title: "Income Tax Ordinance 2001 (Amended Feb 2026)",
@@ -360,8 +373,14 @@ function ResourcesPage() {
                                 variant="outline"
                                 size="sm"
                                 className="h-10 gap-2 rounded-xl border-muted-foreground/20 hover:bg-brand hover:text-white hover:border-brand transition-all"
-                                onClick={() => setSelectedFile(file.filename)}
-                                disabled={!!selectedFile}
+                                onClick={() => {
+                                  if (file.externalLink) {
+                                    window.open(file.externalLink, "_blank");
+                                  } else {
+                                    setSelectedFile(file.filename);
+                                  }
+                                }}
+                                disabled={!file.externalLink && !!selectedFile}
                               >
                                 <Eye className="h-4 w-4" />
                                 View
@@ -370,15 +389,27 @@ function ResourcesPage() {
                                 variant="default"
                                 size="sm"
                                 className="h-10 gap-2 bg-slate-900 hover:bg-brand rounded-xl transition-all min-w-[80px]"
-                                onClick={() => handleDownload(file.filename)}
+                                onClick={() => {
+                                  if (file.externalLink) {
+                                    window.open(file.externalLink, "_blank");
+                                  } else {
+                                    handleDownload(file.filename);
+                                  }
+                                }}
                                 disabled={downloadingFile === file.filename}
                               >
                                 {downloadingFile === file.filename ? (
                                   <Loader2 className="h-4 w-4 animate-spin" />
+                                ) : file.externalLink ? (
+                                  <Eye className="h-4 w-4" />
                                 ) : (
                                   <Download className="h-4 w-4" />
                                 )}
-                                {downloadingFile === file.filename ? "Saving" : "Save"}
+                                {downloadingFile === file.filename
+                                  ? "Saving"
+                                  : file.externalLink
+                                    ? "Open"
+                                    : "Save"}
                               </Button>
                             </div>
                           </div>

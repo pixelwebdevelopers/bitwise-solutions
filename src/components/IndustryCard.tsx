@@ -42,7 +42,9 @@ export function IndustryCard({
             <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">
               Our Solution
             </span>
-            <p className="mt-1 text-sm text-foreground/90 font-medium leading-relaxed">{solution}</p>
+            <p className="mt-1 text-sm text-foreground/90 font-medium leading-relaxed">
+              {solution}
+            </p>
           </div>
         </div>
       </div>

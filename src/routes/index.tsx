@@ -111,38 +111,50 @@ const industries = [
   {
     icon: Store,
     industry: "Retail & Grocery",
-    challenge: "Struggling with complex inventory management and maintaining healthy liquidity for daily operations.",
-    solution: "Automated inventory tracking and cash flow forecasting to ensure stock optimization and financial stability.",
+    challenge:
+      "Struggling with complex inventory management and maintaining healthy liquidity for daily operations.",
+    solution:
+      "Automated inventory tracking and cash flow forecasting to ensure stock optimization and financial stability.",
   },
   {
     icon: Car,
     industry: "Automotive Dealers",
-    challenge: "Facing rigorous tax filings and compliance issues that risked regulatory penalties.",
-    solution: "End-to-end tax management and proactive compliance monitoring to ensure seamless, penalty-free operations.",
+    challenge:
+      "Facing rigorous tax filings and compliance issues that risked regulatory penalties.",
+    solution:
+      "End-to-end tax management and proactive compliance monitoring to ensure seamless, penalty-free operations.",
   },
   {
     icon: Lightbulb,
     industry: "Entrepreneurs",
-    challenge: "Difficulty converting a brilliant business idea into a concrete, investor-ready financial plan.",
-    solution: "Strategic financial modeling and business plan development to turn vision into a viable commercial reality.",
+    challenge:
+      "Difficulty converting a brilliant business idea into a concrete, investor-ready financial plan.",
+    solution:
+      "Strategic financial modeling and business plan development to turn vision into a viable commercial reality.",
   },
   {
     icon: Settings,
     industry: "SME Operations",
-    challenge: "Lacking control over day-to-day resources, leading to inefficiencies and wasted overhead costs.",
-    solution: "Resource optimization frameworks and management controls to maximize operational efficiency.",
+    challenge:
+      "Lacking control over day-to-day resources, leading to inefficiencies and wasted overhead costs.",
+    solution:
+      "Resource optimization frameworks and management controls to maximize operational efficiency.",
   },
   {
     icon: BookOpen,
     industry: "Professional Services",
-    challenge: "Overwhelmed by messy bookkeeping and inconsistent data reconciliation across multiple platforms.",
-    solution: "Digital bookkeeping transformation and rigorous data reconciliation for 100% financial accuracy.",
+    challenge:
+      "Overwhelmed by messy bookkeeping and inconsistent data reconciliation across multiple platforms.",
+    solution:
+      "Digital bookkeeping transformation and rigorous data reconciliation for 100% financial accuracy.",
   },
   {
     icon: ShieldAlert,
     industry: "Investors",
-    challenge: "Uncertainty regarding returns due to economic recession and shifting fiscal policies.",
-    solution: "Risk assessment and tactical investment advisory to protect capital and navigate economic volatility.",
+    challenge:
+      "Uncertainty regarding returns due to economic recession and shifting fiscal policies.",
+    solution:
+      "Risk assessment and tactical investment advisory to protect capital and navigate economic volatility.",
   },
 ];
 
@@ -195,7 +207,8 @@ function HomePage() {
               Business with <span className="text-brand">Confidence</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-primary-foreground/85 max-w-xl leading-relaxed">
-              Economical and reliable financial, taxation, and business consulting services. We provide the quick fixes and long-term stability you need.
+              Economical and reliable financial, taxation, and business consulting services. We
+              provide the quick fixes and long-term stability you need.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -268,7 +281,8 @@ function HomePage() {
             <p className="mt-6 text-muted-foreground leading-relaxed">
               Bizwise Consultants is led by{" "}
               <strong className="text-foreground">Syed Khawar Raza Naqvi (CPA, MBA Finance)</strong>{" "}
-              with 20+ years of experience. We provide simple, understandable solutions that give business owners the confidence to grow.
+              with 20+ years of experience. We provide simple, understandable solutions that give
+              business owners the confidence to grow.
             </p>
             <ul className="mt-8 space-y-3">
               {[
@@ -332,11 +346,7 @@ function HomePage() {
           />
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((ind, i) => (
-              <IndustryCard
-                key={ind.industry}
-                {...ind}
-                delay={i * 80}
-              />
+              <IndustryCard key={ind.industry} {...ind} delay={i * 80} />
             ))}
           </div>
         </div>
